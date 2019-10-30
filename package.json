@@ -1,0 +1,23 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "note-taking app built for Rutgers U",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-lorber/note-taker.git"
+  },
+  "keywords": [],
+  "author": "Matthew Lorber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-lorber/note-taker/issues"
+  },
+  "homepage": "https://github.com/matthew-lorber/note-taker#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
