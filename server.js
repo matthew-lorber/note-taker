@@ -1,19 +1,30 @@
-var express = require('express');
-// TODO: Import your route files from `route/`
-
-// Initialize the app and create a port
-var app = express();
-var PORT = process.env.PORT || 3000;
-
-// Set up body parsing, static, and route middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-
+require('connection');
 // TODO: Mount your HTML and API routes
 // https://expressjs.com/en/api.html#app.use
 
-// Start the server on the port
-app.listen(PORT, function() {
-  console.log('Listening on PORT: ' + PORT);
-});
+/* ALL TOGETHER, FINAL */
+const http = require('http');
+var PORT = process.env.PORT || 8080;
+http.createServer((request, response) => {
+    const { headers, method, url } = request;
+    let body = [];
+    request.on('error', (err) => {
+      console.log('error', err);
+        console.error(err);
+    }).on('data', (chunk) => {
+        body.push(chunk);
+    }).on('end', () => {
+        body = Buffer.concat(body).toString();
+        response.on('error', (err) => {
+            console.error(err.stack);
+        });
+        response.statusCode = 200;
+        response.writeHead(200, {'Content-Type': 'application/json'})
+        const responseBody = { headers, method, url, body };
+        response.write(JSON.stringify(responseBody));
+        //response.end('<html><body>Hello there, user</body></html>');
+        response.end(JSON.stringify(responseBody));
+    });
+}).listen(PORT);
+
+console.log('listening on port', PORT);

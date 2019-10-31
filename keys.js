@@ -1,15 +1,7 @@
-// exports.server = {
-//   host: "localhost",
-//   port: 3306,
-//   user: "root",
-//   password: process.env.password,
-//   database: "bamazon"
-// }
-
-exports.connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
+exports.server = mysql.createConnection({
+  host: process.env.host,
+  port: process.env.port,
+  user: process.env.user,
   password: process.env.password,
-  database: "note_db"
+  database: process.env.database
 });
