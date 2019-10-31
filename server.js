@@ -1,4 +1,6 @@
-require('connection');
+const server = require("./connection.js");
+server.connection();
+
 // TODO: Mount your HTML and API routes
 // https://expressjs.com/en/api.html#app.use
 
