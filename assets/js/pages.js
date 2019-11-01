@@ -1,14 +1,14 @@
 exports.pages = () => {
 
     pages = () => {
-
+        require('dotenv').config();
         const PORT = process.env.port1 || 8080;
         require('http').createServer(function(request, response) {
             
             if (request.url === "/index" || request.url === "/") {
-                var file = "./public/index.html";
+                var file = "./index.html";
             } else {
-                var file = "./public/notes.html";
+                var file = "./notes.html";
             }
 
             require('fs').readFile(file, (err, data) => {

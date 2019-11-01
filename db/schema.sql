@@ -11,3 +11,5 @@ CREATE TABLE notes
   body TEXT,
   PRIMARY KEY(id)
 );
+
+SELECT * FROM notes;

@@ -1,7 +1,7 @@
 exports.server = () => {
 
     server = () => {
-
+        require('dotenv').config();
         const PORT = process.env.port0 || 8000;
 
         require("mysql").createConnection({
