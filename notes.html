@@ -9,34 +9,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body onload="loadListener0(); loadListener1();">
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Note Taker
-    </a>
-    <div class="icons">
-      <i class="fas fa-save text-light save-note"></i>
-      <i class="fas fa-pen text-light new-note"></i>
-    </div>
+    <a class="navbar-brand" href="/"><b>Home</b></a>
   </nav>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-4 list-container">
-        <div class="card">
-          <ul class="list-group">
-          </ul>
+      <div class="col-md-6 offset-md-3 list-container">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title"><span style="color:#4cbcad">Note</span><b><span style="color:dimgray">Taker</span></b></h5>
+            <div class="form-group">
+              <input type="text" class="form-control note-title" placeholder="Note Title">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control note-textarea" placeholder="Enter Note Text" rows="3"></textarea>
+              
+              <div class="btn-group" role="group" aria-label="First group">
+                <button id="saveNote" class="btn btn-success mt-4 float-right save-note"><span style="color:white"><b>Save </span><span style="color:darkslategray">Note</span></b></button>
+                <button id="viewAll" class="btn btn-success mt-4 float-right save-note"><span style="color:white"><b>View </span><span style="color:darkslategray">All</span></b></button>
+                <button id="deleteAll" class="btn btn-success mt-4 float-right save-note"><span style="color:white"><b>Delete </span><span style="color:darkslategray">All</span></b></button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-8">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text">
-        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+        <div class="card mt-4">
+
+          <ul class="list-group">
+            <!-- NOTES GO HERE -->
+          </ul>
+          
+        </div>
+        </div>
       </div>
     </div>
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- <script src="/assets/js/index.js"></script> -->
+  <script src="index.js"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@
 
 
 document.getElementById("viewAll").addEventListener("click", () => {
-    const connection = require('../db/connection.js');
+    const connection = require('../db/connection');
     connection.query("SELECT * FROM notes", function(err, results) {
         if (err) console.error(err);
         console.log(server.state, "to SQL server on port", server.config.port, "as id", server.threadId);
@@ -20,16 +20,5 @@ document.getElementById("viewAll").addEventListener("click", () => {
 });
 
 
-document.getElementById("saveNote").addEventListener("click", () => {
-    var key = $(".note-title").val();
-    var value = $(".note-textarea").val();
-    var insert = '<li class="list-group-item"><div><span class="font-weight-bold">';
-        insert += key;
-        insert += '</span><i class="fas fa-trash-alt float-right text-danger delete-note"></i></div><p class="mt-2">';
-        insert += value;
-        insert += '</p></li>';
-    $(".list-group").append(insert);
-    key = "";
-    value = "";
-});
+
 
