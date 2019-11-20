@@ -1,0 +1,34 @@
+li {
+  list-style-type: none;
+}
+
+.delete-button {
+  font-size: 2em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.blue {
+  color:#4cbcad;
+}
+
+.gray {
+  color:dimgray;
+}
+
+.darkgray {
+  color:darkslategray;
+}
+
+.white {
+  color:white;
+}
+
+i {
+  cursor: pointer;
+}
+.title {
+  color: lightslategray;
+}

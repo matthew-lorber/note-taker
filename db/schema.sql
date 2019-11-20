@@ -3,7 +3,6 @@ CREATE DATABASE note_db;
 
 USE note_db;
 
--- Create the notes table
 CREATE TABLE notes
 (
   id INT NOT NULL AUTO_INCREMENT,
