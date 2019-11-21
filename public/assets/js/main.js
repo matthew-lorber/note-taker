@@ -1,9 +1,9 @@
 window.onload = function() {
-    console.log("loaded");
+    
     document.addEventListener("click", function(event) {
-        console.log("clickregistered");
+        
         if (event.target.matches("#saveNote")) {
-            console.log("savenoteclickregistered");
+            
             var title = document.getElementById("note_title");
             var body = document.getElementById("note_text");
             var node = document.createElement("LI");
@@ -15,8 +15,12 @@ window.onload = function() {
             title.value = "";
             body.value = "";
         } else if (event.target.matches(".delete-button")) {
-            console.log("test", event.target.id);
+            console.log("deletenoteclicked");
             document.getElementById(event.target.id).remove();
+        } else if (event.target.matches("#viewAll")) {
+            console.log("viewallclicked");
+        } else if (event.target.matches("deleteAll")) {
+            alert("Confirm deletion of all notes from database");
         }
 
     });

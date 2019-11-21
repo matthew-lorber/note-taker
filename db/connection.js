@@ -10,9 +10,10 @@ if (process.env.JAWSDB_URL) {
         host: "localhost",
         port: 3306,
         user: "root",
-        password: process.env.PASSWORD,
+        password: "Lisinopril1!",
+        //password: process.env.PASSWORD,
         database: "note_db"
     });
 }
-
+console.log("Database server spooled up on port", connection.config.port);
 module.exports = connection;
