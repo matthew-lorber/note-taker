@@ -13,4 +13,4 @@ app.use(html_routes);
 app.listen(PORT, function() {
     console.log("Express server listening on port", PORT);
 });
-connection.connect();
+connection;

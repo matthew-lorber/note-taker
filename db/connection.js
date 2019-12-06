@@ -1,5 +1,5 @@
 /* CONNECTION */
-require("dotenv");
+require("dotenv").config();
 var mysql = require("mysql");
 var connection;
 
@@ -10,10 +10,14 @@ if (process.env.JAWSDB_URL) {
         host: "localhost",
         port: 3306,
         user: "root",
-        password: "Lisinopril1!",
-        //password: process.env.PASSWORD,
+        password: process.env.PW,
         database: "note_db"
     });
 }
-console.log("Database server spooled up on port", connection.config.port);
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Database server spooled up on port", connection.config.port);
+})
+
 module.exports = connection;
