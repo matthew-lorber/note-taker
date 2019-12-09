@@ -1,45 +1,58 @@
-
-//var app = require("../../../");
-
-document.addEventListener("click", function(event) {
+// This script handles the incoming clicks on notes.html and sends them to front and backend  
+document.getElementById("saveNote").addEventListener("click", (msg, cb) => {console.log("here");
     
-    if (event.target.matches("#saveNote")) {console.log("here");
-        
-        const title = document.getElementById("note_title");
-        const body = document.getElementById("note_text");
-        const node = document.createElement("LI");
+    /* Try to store note in the database first. If err then user can try again without losing the note */
+    const t = document.getElementById("note_title");
+    const b = document.getElementById("note_text");
+    const route = `/api/addNote`;
+    const note = {
+        title: t.value,
+        body: b.value
+    }
+    $.ajax({
+        url: route,
+        method: "POST",
+        data: note
+    }).then(cb => {
+        if (cb) {
+            console.log("good save to db");
+            writeToScreen(t, b);
+        } else {
+            alert("Something went wrong while saving this note");
+        }
+    });
 
-        // Below to add the date & time to the note, using the time as itsconst
-        const date = new Date();
-        const now = date.toLocaleString("en-US");
-        const this_id = date.getTime();
+    writeToScreen = (t, b) => {
 
-        // This is the note's html plus variable values from above
-        node.innerHTML = "<li class='a_li' id='" + 
-        this_id + "'><span class='blue'>" + now + " " + "</span><span class='bold blue'>" + title.value + "</span>: <span>" + body.value + "<span class='delete-button bold blue float-right' id='" + this_id + "'>&#11198;</span></span></li>";
-        document.getElementById("note_group").appendChild(node);
+    const node = document.createElement("LI");
 
-        // Resetting input fields to placeholders
-        title.value = "";
-        body.value = "";
-        // $.post("/new",data,callback);
-        app.post("/new",data);
-    } 
+    // Below to add the date & time to the note, using the time as itsconst
+    const date = new Date();
+    const now = date.toLocaleString("en-US");
+    const this_id = date.getTime();
+
+    // This is the note's html plus variable values from above
+    node.innerHTML = "<li class='a_li' id='" + 
+    this_id + "'><span class='blue'>" + now + " " + "</span><span class='bold blue'>" + t.value + "</span>: <span>" + b.value + "<span class='delete-button bold blue float-right' id='" + this_id + "'>&#11198;</span></span></li>";
+    document.getElementById("note_group").appendChild(node);
+
+    // Resetting input fields to placeholders
+    title.value = "";
+    body.value = "";
+
+    }
+
     
-    else if (event.target.matches(".delete-button")) {
-        console.log("deletenoteclicked");
-        document.getElementById(event.target.id).remove();
-    } 
-    
-    else if (event.target.matches("#viewAll")) {
-        console.log("viewallclicked");
-        app.get("/notes", function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
-            });
-    } 
-
 });
 
-  
+$(".delete-button").on("click", event => {
+    console.log("deletenoteclicked");
+    //document.getElementById(event.target.id).remove();
+});
 
-
+$("#viewAll").on("click", () => {
+    console.log("viewallclicked");
+    // app.get("/notes", function(data, status){
+    //     alert("Data: " + data + "\nStatus: " + status);
+    //     });
+});
