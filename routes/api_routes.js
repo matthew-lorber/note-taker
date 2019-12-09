@@ -22,7 +22,6 @@ router.put("/new/:id", function(req, res) {
   console.log("got to new put route");
   connection.query("UPDATE notes SET ? WHERE id = ?", [req.body, req.params.id], function(err, result) {
     if (err) throw err;
-
     res.json(result);
   });
 });
