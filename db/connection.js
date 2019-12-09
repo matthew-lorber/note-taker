@@ -1,8 +1,9 @@
-/* CONNECTION */
+// dotenv for .env file
 require("dotenv").config();
-var mysql = require("mysql");
-var connection;
+let mysql = require("mysql");
+let connection;
 
+// Local connection or Jaws when deployed to Heroku
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
@@ -15,9 +16,14 @@ if (process.env.JAWSDB_URL) {
     });
 }
 
+// Connecting to database
 connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Database server spooled up on port", connection.config.port);
-})
+    if (err) {
+        console.error(err);
+    } else {
+    console.log("sql server listening on port", connection.config.port);
+    }
+});
 
+// Export the connection for use elsewhere in the app
 module.exports = connection;

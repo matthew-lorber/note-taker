@@ -7,5 +7,5 @@ VALUES
   ("Mark myself present in Bootcampspot", "Remember to mark myself present every Monday-Friday at 10am"),
   ("Commit more", "Get those commits up. It shows the process and progress.");
   
-  SELECT * FROM notes;
+SELECT * FROM notes;
   -- ADD MORE
