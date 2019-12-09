@@ -1,16 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const api_routes = require("./routes/api_routes");
 const connection = require("./db/connection.js");
+// const notes = require("./public/assets/js/notes.js");
 const app = express();
-const notes = require("./public/assets/js/notes.js");
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
-app.use(api_routes);
-notes.use(router);
+// app.use(notes);
 app.listen(PORT);
 console.log("express server listening on", PORT);
 

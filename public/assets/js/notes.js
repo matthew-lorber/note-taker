@@ -1,5 +1,3 @@
-import { express } from "../../../server";
-
 // This script handles the incoming clicks on notes.html and sends them to front and backend  
 $("#saveNote").on("click", () => {
     
@@ -11,11 +9,11 @@ $("#saveNote").on("click", () => {
         body: b.value
     };
 
-    express.Router().post("/new", function(req, res) {console.log("hit add new note route");
-    connection.query("INSERT INTO notes SET ?", [note], function(err, result) {
-        if (err) throw err;
+    router.post("/new", function(req, res) {console.log("hit add new note route");
+        connection.query("INSERT INTO notes SET ?", [note], function(err, result) {
+            if (err) throw err;
 
-        res.json(result);
+            res.json(result);
         });
     }).then(cb => {
         if (cb) {
@@ -25,8 +23,9 @@ $("#saveNote").on("click", () => {
             alert("Something went wrong while saving this note");
         }
     });
+});
 
-    writeToScreen = (t, b) => {
+writeToScreen = (t, b) => {
 
     const node = document.createElement("LI");
 
@@ -44,10 +43,8 @@ $("#saveNote").on("click", () => {
     title.value = "";
     body.value = "";
 
-    }
+}
 
-    
-});
 
 $(".delete-button").on("click", event => {
     console.log("deletenoteclicked");
@@ -59,4 +56,12 @@ $("#viewAll").on("click", () => {
     // app.get("/notes", function(data, status){
     //     alert("Data: " + data + "\nStatus: " + status);
     //     });
+
+    router.get("/notes", function(req, res) {console.log("hit read all notes route");
+    connection.query("SELECT * FROM notes", function(err, dbnewNote) {
+        if (err) throw err;
+
+        res.json(dbnewNote);
+     });
+    });
 });
