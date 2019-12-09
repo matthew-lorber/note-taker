@@ -1,16 +1,23 @@
 const express = require("express");
+const router = express.Router();
 const api_routes = require("./routes/api_routes");
-const html_routes = require("./routes/html_routes");
-require("./db/connection.js");
+const connection = require("./db/connection.js");
 const app = express();
+const notes = require("./public/assets/js/notes.js");
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.use(api_routes);
-app.use(html_routes);
+notes.use(router);
 app.listen(PORT);
 console.log("express server listening on", PORT);
 
-module.exports = app;
+// Export the middleware so other modules can use it
+exports.app = app;
+exports.express = express;
+exports.connection = connection;
+exports.router = router;
+
+//console.log(module.filename); console.log(module.id); console.log(module.exports);

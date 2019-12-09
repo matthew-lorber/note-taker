@@ -1,18 +1,22 @@
+import { express } from "../../../server";
+
 // This script handles the incoming clicks on notes.html and sends them to front and backend  
-document.getElementById("saveNote").addEventListener("click", (msg, cb) => {console.log("here");
+$("#saveNote").on("click", () => {
     
     /* Try to store note in the database first. If err then user can try again without losing the note */
     const t = document.getElementById("note_title");
     const b = document.getElementById("note_text");
-    const route = `/api/addNote`;
     const note = {
         title: t.value,
         body: b.value
-    }
-    $.ajax({
-        url: route,
-        method: "POST",
-        data: note
+    };
+
+    express.Router().post("/new", function(req, res) {console.log("hit add new note route");
+    connection.query("INSERT INTO notes SET ?", [note], function(err, result) {
+        if (err) throw err;
+
+        res.json(result);
+        });
     }).then(cb => {
         if (cb) {
             console.log("good save to db");
