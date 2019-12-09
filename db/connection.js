@@ -4,6 +4,8 @@ let mysql = require("mysql");
 let connection;
 
 // Local connection or Jaws when deployed to Heroku
+// take out the ! when deploying
+// if (!process.env.JAWSDB_URL) {
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
@@ -25,5 +27,5 @@ connection.connect(function(err) {
     }
 });
 
-// Export the connection for use elsewhere in the app
+// Export the connection for use in api_routes.js
 module.exports = connection;
