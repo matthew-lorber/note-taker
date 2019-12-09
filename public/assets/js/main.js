@@ -1,5 +1,4 @@
-var express = require("express");
-var app = express();
+
 
 window.onload = function() {
     
@@ -18,7 +17,8 @@ window.onload = function() {
             var data = title.value + "|" + body.value;
             title.value = "";
             body.value = "";
-
+            var express = require("express");
+            var app = express();
             console.log("posting new", data);
             // $.post("/new",data,callback);
             app.post("/new",data);
