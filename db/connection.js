@@ -6,7 +6,7 @@ let connection;
 // Local connection or Jaws when deployed to Heroku
 // take out the ! when deploying
 // if (!process.env.JAWSDB_URL) {
-if (process.env.JAWSDB_URL) {
+if (!process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
