@@ -8,4 +8,3 @@ VALUES
   ("Commit more", "Get those commits up. It shows the process and progress.");
   
 SELECT * FROM notes;
-  -- ADD MORE
