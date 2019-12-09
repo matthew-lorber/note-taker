@@ -10,6 +10,7 @@ router.get("/notes", function(req, res) {
 });
 
 router.post("/new", function(req, res) {
+  console.log("got to new api route");
   connection.query("INSERT INTO notes SET ?", [req.body], function(err, result) {
     if (err) throw err;
 
@@ -18,6 +19,7 @@ router.post("/new", function(req, res) {
 });
 
 router.put("/new/:id", function(req, res) {
+  console.log("got to new put route");
   connection.query("UPDATE notes SET ? WHERE id = ?", [req.body, req.params.id], function(err, result) {
     if (err) throw err;
 

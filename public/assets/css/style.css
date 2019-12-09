@@ -4,6 +4,7 @@ li {
 
 .delete-button {
   font-size: 2em;
+  cursor: pointer;
 }
 
 .bold {

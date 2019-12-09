@@ -1,3 +1,6 @@
+var express = require("express");
+var app = express();
+
 window.onload = function() {
     
     document.addEventListener("click", function(event) {
@@ -12,10 +15,13 @@ window.onload = function() {
             var this_id = date.getTime();
             node.innerHTML = "<li class='a_li' id='" + this_id + "'><span class='bold gray'>" + now + " " + "</span><span class='bold blue'>" + title.value + "</span>: <span>" + body.value + "<span class='delete-button bold blue float-right' id='" + this_id + "'>&#11198;</span></span></li>";
             document.getElementById("note_group").appendChild(node);
+            var data = title.value + "|" + body.value;
             title.value = "";
             body.value = "";
 
-            $.post("/new",data,callback);
+            console.log("posting new", data);
+            // $.post("/new",data,callback);
+            app.post("/new",data);
         } 
         
         else if (event.target.matches(".delete-button")) {
@@ -25,7 +31,7 @@ window.onload = function() {
         
         else if (event.target.matches("#viewAll")) {
             console.log("viewallclicked");
-            $.get("/notes", function(data, status){
+            app.get("/notes", function(data, status){
                 alert("Data: " + data + "\nStatus: " + status);
               });
         } 
