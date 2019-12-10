@@ -7,14 +7,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(express.static("public"));
 app.use(router);
 
 router.post("/new", function(req, res) {console.log("hit add new note route");
-console.log(req);
-    connection.query("INSERT INTO notes SET ?", [req.body.title], function(err, result) {
-        // rigth here figure out req.body.title and req.body.body PLACE INTO DATABASE
+    const query = "INSERT INTO notes (title, body) VALUES ('"+ req.body.title.toString() + "','" + req.body.note.toString() + "');";
+    connection.query(query, function(err, result) {
         if (err) throw err;
-
         res.json(result);
     });
 });
