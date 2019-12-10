@@ -40,7 +40,7 @@ $("#viewAll").click(() => {
         for (let i=0; i<res.length; i++) {
             const note = res[i];
             // This is the note's html plus variable values from above
-            const node = "<li class='a_li'><span class='blue'>" + Date(note.id).toLocaleString() + " " + "</span><span class='bold blue'>" + note.title + "</span>: <span>" + note.body + "<span class='deleteButton bold blue float-right' id='" + note.id + "'>&#11198;</span></span></li>";
+            const node = "<li class='a_li'><span class='blue'>" + Date(note.id).toLocaleString("en-US") + " " + "</span><span class='bold blue'>" + note.title + "</span>: <span>" + note.body + "<span class='deleteButton bold blue float-right' id='" + note.id + "'>&#11198;</span></span></li>";
             $("#note_group").append(node);
         }
     });

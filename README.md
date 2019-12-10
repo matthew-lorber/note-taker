@@ -12,23 +12,13 @@ This is a Node, Express, and MySQL powered note-taking application hosted on Her
 [jQuery]() simplify AJAX request and DOM traversal
 
 
-### Before You Begin
+### How's it Work?
 
-* Check out these demo versions of the site:
+* Check out this demo version of the site:
 
-* [Normal Version](https://note-taker-easier-fsf.herokuapp.com/)
+<video controls src="demo.mp4" width="640" height="480" alt="demo.mp4"></video>
 
-  * The user can save, view, or delete notes, but must refresh or navigate to a different page to see the changes. Every note is always visible.
-
-* [Bonus Version](https://note-taker-fsf.herokuapp.com/)
-
-  * The user can save, view, and delete notes without having to refresh or navigate to a different page to see the changes. Note titles are visible from a sidebar, when a note title is clicked, the active note appears in the textarea.
-
-  * This example is modeled after the Notes app on Mac OS:
-
-    ![mac-notes](mac-notes.png)
-
-  * If you finish the Bonus Version early, see if you can add the ability to edit saved notes!
+* The user can save, view, and delete notes without having to refresh or navigate to a different page to see the changes. Note titles are visible from a sidebar, when a note title is clicked, the active note appears in the textarea.
 
 
 ### Instructions
