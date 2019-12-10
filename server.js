@@ -10,22 +10,30 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.use(router);
 
-router.post("/new", function(req, res) {console.log("hit add new note route");
-    const query = "INSERT INTO notes (title, body) VALUES ('"+ req.body.title.toString() + "','" + req.body.note.toString() + "');";
+router.post("/new", function(req, res) {
+    const query = "INSERT INTO notes (id, title, body) VALUES ('"+ req.body.id + "','" + req.body.title + "','" + req.body.note + "');";
     connection.query(query, function(err, result) {
         if (err) throw err;
         res.json(result);
     });
 });
-app.use(express.static("public"));
 
+router.post("/delete", function(req, res) {
+    const query = "DELETE FROM notes WHERE id=" + req.body.id;
+    connection.query(query, function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+router.get("/view", function(req, res) {
+    connection.query("SELECT * FROM notes", function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+
+app.use(express.static("public"));
 app.listen(PORT);
 console.log("express server listening on", PORT);
-
-// Export the middleware so other modules can use it
-// exports.app = app;
-// exports.express = express;
-// exports.connection = connection;
-// exports.router = router;
-
-//console.log(module.filename); console.log(module.id); console.log(module.exports);

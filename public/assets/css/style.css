@@ -2,9 +2,10 @@ li {
   list-style-type: none;
 }
 
-.delete-button {
+.deleteButton {
   font-size: 2em;
   cursor: pointer;
+  z-index: 10;
 }
 
 textarea {
