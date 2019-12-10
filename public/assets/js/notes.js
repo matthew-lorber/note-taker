@@ -8,21 +8,16 @@ $("#saveNote").on("click", () => {
         title: t.value,
         body: b.value
     };
+    var cb = "";
+    $.post("/new", note, cb);
+    
+    if (cb) {
+        console.log("good save to db");
+        writeToScreen(t, b);
+    } else {
+        alert("Something went wrong while saving this note");
+    }
 
-    router.post("/new", function(req, res) {console.log("hit add new note route");
-        connection.query("INSERT INTO notes SET ?", [note], function(err, result) {
-            if (err) throw err;
-
-            res.json(result);
-        });
-    }).then(cb => {
-        if (cb) {
-            console.log("good save to db");
-            writeToScreen(t, b);
-        } else {
-            alert("Something went wrong while saving this note");
-        }
-    });
 });
 
 writeToScreen = (t, b) => {
