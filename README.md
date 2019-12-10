@@ -2,14 +2,14 @@
 
 ### Overview
 
-This is a Node, Express, and MySQL powered note-taking application hosted on Heroku. It lets the user create, read, and delete notes from a MySQL database.
+[This](https://matthew-lorber-note-taker.herokuapp.com/) is a Node, Express, and MySQL powered note-taking application hosted on Heroku. It lets the user create, read, and delete notes from a MySQL database.
 
 ### Technologies
 
-[Node.js]()
-[Express]() routing, server HTML, JSON
-[MySQL]() store notes
-[jQuery]() simplify AJAX request and DOM traversal
+* [Node.js]() runtime environment
+* [Express]() routing, server HTML, JSON
+* [MySQL]() store notes
+* [jQuery]() simplify AJAX request and DOM traversal
 
 
 ### How's it Work?
@@ -18,58 +18,18 @@ This is a Node, Express, and MySQL powered note-taking application hosted on Her
 
 <video controls src="demo.mp4" width="640" height="480" alt="demo.mp4"></video>
 
-* The user can save, view, and delete notes without having to refresh or navigate to a different page to see the changes. Note titles are visible from a sidebar, when a note title is clicked, the active note appears in the textarea.
+* The user can save, view, and delete notes without having to refresh or navigate to a different page to see the changes. Note titles and bodies are visible in the main area (for convenience's sake).
 
 
-### Instructions
+### How Can I Use It?
 
-1. Create the backend for the application first. Start by using the provided `schema.sql` and `seeds.sql` file create a database and seed some starter data.
-
-2. Create a `server.js` file that starts a basic express server.
-
-3. Require the `connection.js` file provided and add API routes for:
-
-* Retrieving all notes from the database and returning them to the user as JSON.
-
-* Saving a new note to the database using the data passed on `req.body`.
-
-* Deleting a note from the database using `req.params.id`.
-
-4. Test that all your API routes work properly using Postman.
-
-5. Add a `/` route for serving an `index.html` file (the welcome page).
-
-6. Add a `/notes` route for serving a `notes.html` file (the page for viewing, saving, deleting notes).
-
-7. Style the `index.html` page and add a description of the application.
-
-8. Decide whether you'd like to attempt the easier or more difficult assignment. If you're unsure, attempt the easier version first.
-
-9. Code the front-end logic for displaying the list of notes or list of note titles if working on the bonus assignment.
-
-10. If working on the bonus assignment, code front end logic for displaying a note when it's title is clicked from the list.
-
-11. Code the front-end logic for submitting a new note.
-
-12. Code the front-end logic for deleting a note from the database.
-
-13. Deploy the assignment on Heroku using the [MySQLHerokuDeploymentProcess.md](../../03-Supplemental/MySQLHerokuDeploymentProcess.md) guide.
-
-### Hints
-
-* You can use HTML [data-* attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) to keep track of the data attached to each note in the HTML, or you can also use the [jQuery data method](https://api.jquery.com/data/) to accomplish this.
-
-### Reminder: Submission on BCS
-
-* Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
-
-- - -
-
-### Minimum Requirements
-
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below. **This assignment must be deployed.**
-
-- - -
+1. Fork into a new repository.
+2. Setup an account at Heroku and provision JawsDB.
+3. Connect the Heroku deployment to the repo.
+4. Create a .env file and store <code>PW=</code> (for local) and <code>JAWSDB_URL=</code> for Heroku.
+5. Run npm init to install node modules.
+6. Add .env and node_modules to your .gitignore.
+7. Happy hacking!
 
 ### Hosting on Heroku
 
@@ -79,27 +39,6 @@ Please see [Heroku’s Account Verification Information](https://devcenter.herok
 
 See the [Supplemental Heroku Deployment Guide](../../Supplemental/HerokuGuide.md) for in-detail deployment instructions.
 
-- - -
-
-### Create a README.md
-
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
-- - -
-
-### Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-- - -
-
-### One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-**Good Luck!**
+## License
+MIT 2019 Matthew Lorber
 
