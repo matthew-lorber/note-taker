@@ -8,6 +8,9 @@ li {
   z-index: 10;
 }
 
+#navbar-brand {
+  z-index: 10;
+}
 textarea {
   color:darkslategray !important;
 }

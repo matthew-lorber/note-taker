@@ -18,7 +18,7 @@ router.post("/new", function(req, res) {
     });
 });
 
-router.post("/delete", function(req, res) {
+router.delete("/delete", function(req, res) {
     const query = "DELETE FROM notes WHERE id=" + req.body.id;
     connection.query(query, function(err, result) {
         if (err) throw err;
@@ -26,8 +26,8 @@ router.post("/delete", function(req, res) {
     });
 });
 
-router.get("/view", function(req, res) {
-    connection.query("SELECT * FROM notes", function(err, result) {
+router.get("/view", (req, res) => {
+    connection.query("SELECT * FROM notes", (err, result) => {
         if (err) throw err;
         res.json(result);
     });
